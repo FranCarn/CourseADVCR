@@ -7,6 +7,8 @@ import {
   Navigate,
 } from "react-router-dom";
 import logo from "../logo.svg";
+import { LazyPageOne, LazyPageThree, LazyPageTwo } from "../LazyLoad/pages/";
+
 interface Props {
   children?: JSX.Element;
 }
@@ -20,34 +22,34 @@ export const Navigation: FC<Props> = ({ children }) => {
           <ul>
             <li>
               <NavLink
-                to="/home"
+                to="/lazyOne"
                 className={({ isActive }) => (isActive ? "nav-active" : "")}
               >
-                Home
+                Lazy One
               </NavLink>
             </li>
             <li>
               <NavLink
-                to="/about"
+                to="/lazyTwo"
                 className={({ isActive }) => (isActive ? "nav-active" : "")}
               >
-                About
+                Lazy Two
               </NavLink>
             </li>
             <li>
               <NavLink
-                to="/users"
+                to="/lazyThree"
                 className={({ isActive }) => (isActive ? "nav-active" : "")}
               >
-                Users
+                Lazy Three
               </NavLink>
             </li>
           </ul>
         </nav>
         <Routes>
-          <Route path="about" element={<h1>About Page</h1>} />
-          <Route path="users" element={<h1>Users Page</h1>} />
-          <Route path="home" element={<h1>Home Page</h1>} />
+          <Route path="lazyOne" element={<LazyPageOne />} />
+          <Route path="lazyTwo" element={<LazyPageTwo />} />
+          <Route path="lazyThree" element={<LazyPageThree />} />
           <Route path="/*" element={<Navigate to="/home" replace />} />
         </Routes>
       </div>
