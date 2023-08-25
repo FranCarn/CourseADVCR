@@ -1,5 +1,7 @@
 import React from "react";
 
-export const LazyPageOne = () => {
-  return <h1>LazyPageOne</h1>;
+const LazyPageOne = () => {
+  return <div>LazyPageOne</div>;
 };
+
+export default LazyPageOne;
