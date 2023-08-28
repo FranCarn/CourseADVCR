@@ -12,10 +12,11 @@ export const ShoppingPage = () => {
       <h1>Store</h1>
       <hr />
       <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
-        <ProductCard product={product} />
-        <ProductCard product={product} />
-        <ProductCard product={product} />
-        <ProductCard product={product} />
+        <ProductCard product={product}>
+          <ProductCard.Image />
+          <ProductCard.Title />
+          <ProductCard.Buttons />
+        </ProductCard>
       </div>
     </div>
   );
