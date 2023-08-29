@@ -1,3 +1,14 @@
 .bg-dark {
   background-color: rgb(56, 56, 56);
 }
+
+.text-white {
+  color: #fff;
+  font-weight: bold;
+}
+
+.custom-image {
+  padding: 10px;
+  border-radius: 20px;
+  width: calc(100% - 20px);
+}

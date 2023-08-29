@@ -2,7 +2,12 @@ import { useContext } from "react";
 import { ProductContext } from "./ProductCard";
 import styles from "../styles/styles.module.css";
 
-export const ProductButtons = () => {
+export interface ButtonsProps {
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+export const ProductButtons = ({ className, style }: ButtonsProps) => {
   const { counter, increaseBy } = useContext(ProductContext);
 
   return (

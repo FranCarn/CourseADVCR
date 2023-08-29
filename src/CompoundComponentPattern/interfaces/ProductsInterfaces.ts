@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import { ButtonsProps } from "../components";
 
 export interface ProductCardProps {
   product: Product;
@@ -23,5 +24,5 @@ export interface ProductCardHOCProps {
   ({ product, children }: ProductCardProps): JSX.Element;
   Title: ({ title }: { title?: string }) => JSX.Element;
   Image: ({ img }: { img?: string }) => JSX.Element;
-  Buttons: () => JSX.Element;
+  Buttons: ({ className, style }: ButtonsProps) => JSX.Element;
 }
