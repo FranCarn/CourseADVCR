@@ -14,6 +14,7 @@ export const ProductCard = ({
   product,
   children,
   className,
+  style,
 }: ProductCardProps) => {
   const { counter, increaseBy } = useProduct();
   return (
@@ -24,7 +25,9 @@ export const ProductCard = ({
         increaseBy,
       }}
     >
-      <div className={`${styles.productCard} ${className}`}>{children}</div>
+      <div className={`${styles.productCard} ${className}`} style={style}>
+        {children}
+      </div>
     </Provider>
   );
 };
