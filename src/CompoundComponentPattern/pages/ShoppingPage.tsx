@@ -4,63 +4,12 @@ import {
   ProductImage,
   ProductTitle,
 } from "../components";
+import { products } from "../data/products";
+import { useShoppingCart } from "../hooks/useShoppingCart";
 import "../styles/custom-styles.css";
-import { OnChangeArgs, Product } from "../interfaces/ProductsInterfaces";
-import { useState } from "react";
-
-const product = {
-  id: 1,
-  title: "Coffee Mug",
-  img: "./coffee-mug.png",
-};
-const product2 = {
-  id: 2,
-  title: "Coffee Mug 2 ",
-  img: "./coffee-mug2.png",
-};
-
-const products: Product[] = [product, product2];
-
-interface ProductInCart extends Product {
-  count: number;
-}
 
 export const ShoppingPage = () => {
-  const [shoppingCart, setShoppingCart] = useState<{
-    [key: number]: ProductInCart;
-  }>({});
-
-  const onProductCountChange = ({ count, product }: OnChangeArgs) => {
-    setShoppingCart((prev) => {
-      // resolve like that if child control the state
-      // if (!count) {
-      //   const { [product.id]: toDelete, ...rest } = prev;
-      //   return rest;
-      // }
-      // return {
-      //   ...prev,
-      //   [product.id]: {
-      //     ...product,
-      //     count,
-      //   },
-
-      const productInCart: ProductInCart = prev[product.id] || {
-        ...product,
-        count: 0,
-      };
-
-      if (Math.max(productInCart.count + count, 0) > 0) {
-        productInCart.count += count;
-        return {
-          ...prev,
-          [product.id]: productInCart,
-        };
-      }
-
-      const { [product.id]: toDelete, ...rest } = prev;
-      return rest;
-    });
-  };
+  const { shoppingCart, onProductCountChange } = useShoppingCart();
 
   return (
     <div>
