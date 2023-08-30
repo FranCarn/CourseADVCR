@@ -80,6 +80,7 @@ export const ShoppingPage = () => {
             key={product.id}
             onChange={onProductCountChange}
             className="bg-dark text-white"
+            value={shoppingCart[product.id]?.count || 0}
           >
             <ProductImage className="custom-image" />
             <ProductTitle />
@@ -88,7 +89,7 @@ export const ShoppingPage = () => {
         ))}
         <div className="shopping-cart">
           {Object.entries(shoppingCart).map(([key, value]) => {
-            const { count, ...rest } = value;
+            const { count } = value;
             return (
               <ProductCard
                 product={value}
@@ -96,7 +97,7 @@ export const ShoppingPage = () => {
                 className="bg-dark text-white"
                 style={{ width: "100px" }}
                 onChange={onProductCountChange}
-                value={value.count}
+                value={count}
               >
                 <ProductImage className="custom-image" />
                 <ProductButtons
