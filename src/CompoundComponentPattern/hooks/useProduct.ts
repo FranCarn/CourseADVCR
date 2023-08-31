@@ -19,20 +19,22 @@ export const useProduct = ({
   initialValue,
 }: useProductArgs) => {
   const [counter, setCounter] = useState<number>(initialValue?.count || value);
-  const isControlled = useRef(!!onChange);
+
+  const isMounted = useRef(false);
 
   const increaseBy = (value: number) => {
-    if (isControlled.current) {
-      return onChange!({ count: value, product });
+    let newValue = Math.max(counter + value, 0);
+    if (initialValue?.maxCount) {
+      newValue = Math.min(newValue, initialValue?.maxCount);
     }
-    const newValue = Math.max(counter + value, 0);
     setCounter(newValue);
     onChange && onChange({ count: newValue, product });
   };
 
-  // useEffect(() => {
-  //   setCounter(value);
-  // }, [value]);
+  useEffect(() => {
+    if (!isMounted.current) return;
+    setCounter(value);
+  }, [value]);
 
   return {
     counter,
