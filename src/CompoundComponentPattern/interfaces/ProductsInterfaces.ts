@@ -1,4 +1,3 @@
-import { ReactElement } from "react";
 import {
   ProductButtonsProps,
   ProductImageProps,
@@ -7,7 +6,7 @@ import {
 
 export interface ProductCardProps {
   product: Product;
-  children?: ReactElement | ReactElement[];
+  children?: (initialValue: InitialValues) => JSX.Element;
   className?: string;
   style?: React.CSSProperties;
   onChange?: (args: OnChangeArgs) => void;
@@ -33,6 +32,7 @@ export interface ProductContextProps {
   counter: number;
   product: Product;
   increaseBy: (value: number) => void;
+  maxCount?: number;
 }
 
 export interface ProductCardHOCProps {
