@@ -6,7 +6,7 @@ import {
 
 export interface ProductCardProps {
   product: Product;
-  children?: (initialValue: InitialValues) => JSX.Element;
+  children?: (args: ProductCardHandlers) => JSX.Element;
   className?: string;
   style?: React.CSSProperties;
   onChange?: (args: OnChangeArgs) => void;
@@ -40,4 +40,14 @@ export interface ProductCardHOCProps {
   Title: (Props: ProductTitleProps) => JSX.Element;
   Image: (Props: ProductImageProps) => JSX.Element;
   Buttons: ({ className, style }: ProductButtonsProps) => JSX.Element;
+}
+
+export interface ProductCardHandlers {
+  count: number;
+  isMaxCountReached: boolean;
+  maxCount?: number;
+  product: Product;
+
+  increaseBy: (value: number) => void;
+  reset: () => void;
 }

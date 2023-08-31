@@ -24,11 +24,14 @@ export const ShoppingPage = () => {
           maxCount: 10,
         }}
       >
-        {(initialValue) => (
+        {({ reset }) => (
           <>
             <ProductImage className="custom-image" />
             <ProductTitle />
             <ProductButtons className="custom-buttons" />
+            <button onClick={reset} className="bg-dark text-white">
+              Reset
+            </button>
           </>
         )}
       </ProductCard>
