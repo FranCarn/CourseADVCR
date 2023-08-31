@@ -12,7 +12,13 @@ export interface ProductCardProps {
   style?: React.CSSProperties;
   onChange?: (args: OnChangeArgs) => void;
   value?: number;
+  initialValue?: InitialValues;
 }
+export interface InitialValues {
+  count?: number;
+  maxCount?: number;
+}
+
 export interface OnChangeArgs {
   product: Product;
   count: number;
