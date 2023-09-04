@@ -2,11 +2,13 @@ import { BrowserRouter } from "react-router-dom";
 import { Routes, Route, NavLink, Navigate } from "react-router-dom";
 
 import logo from "../logo.svg";
-import { RegisterPage } from "../03-Forms/pages/RegisterPage";
-import { FormikBasicPage } from "../03-Forms/pages/FormikBasicPage";
-import { FormikYupPage } from "../03-Forms/pages/FormikYupPage";
-import { FormikComponents } from "../03-Forms/pages/FormikComponents";
-import { FormikAbstractation } from "../03-Forms/pages/FormikAbstractation";
+import {
+  FormikAbstractation,
+  FormikBasicPage,
+  FormikComponents,
+  FormikYupPage,
+  RegisterPage,
+} from "../03-Forms/pages";
 
 export const Navigation = () => {
   return (
