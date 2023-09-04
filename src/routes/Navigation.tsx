@@ -6,6 +6,7 @@ import { RegisterPage } from "../03-Forms/pages/RegisterPage";
 import { FormikBasicPage } from "../03-Forms/pages/FormikBasicPage";
 import { FormikYupPage } from "../03-Forms/pages/FormikYupPage";
 import { FormikComponents } from "../03-Forms/pages/FormikComponents";
+import { FormikAbstractation } from "../03-Forms/pages/FormikAbstractation";
 
 export const Navigation = () => {
   return (
@@ -70,6 +71,14 @@ export const Navigation = () => {
                 Formik Components
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/formikAbstraction"
+                className={({ isActive }) => (isActive ? "nav-active" : "")}
+              >
+                Formik Abstractation
+              </NavLink>
+            </li>
           </ul>
         </nav>
 
@@ -81,6 +90,7 @@ export const Navigation = () => {
           <Route path="formikBasic" element={<FormikBasicPage />} />
           <Route path="formikYup" element={<FormikYupPage />} />
           <Route path="formikComponents" element={<FormikComponents />} />
+          <Route path="formikAbstraction" element={<FormikAbstractation />} />
 
           <Route path="/*" element={<Navigate to="/home" replace />} />
         </Routes>
