@@ -1,6 +1,6 @@
 import { Formik, Form, FormikValues } from "formik";
 import formJSON from "../data/customForm.json";
-import { MyTextInput } from "../components";
+import { MySelect, MyTextInput } from "../components";
 
 const initialValues: { [x: string]: any } = {};
 
@@ -21,16 +21,30 @@ export const DynamicForm = () => {
       >
         {(formik) => (
           <Form>
-            {formJSON.map(({ type, name, placeholder, label }) => {
-              return (
-                <MyTextInput
-                  key={name}
-                  type={type}
-                  name={name}
-                  placeholder={placeholder}
-                  label={label}
-                />
-              );
+            {formJSON.map(({ type, name, placeholder, label, options }) => {
+              if (type === "text" || type === "password" || type === "email") {
+                return (
+                  <MyTextInput
+                    key={name}
+                    type={type}
+                    name={name}
+                    placeholder={placeholder}
+                    label={label}
+                  />
+                );
+              } else if (type === "select") {
+                return (
+                  <MySelect label={label} name={name}>
+                    <option value="">Select an option</option>
+                    {options?.map((opt) => (
+                      <option key={opt.id} value={opt.id}>
+                        {opt.label}
+                      </option>
+                    ))}
+                  </MySelect>
+                );
+              }
+              throw new Error(`Type: ${type} isn't supported`);
             })}
             <button type="submit">Submit</button>
           </Form>

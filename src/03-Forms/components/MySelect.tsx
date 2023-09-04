@@ -4,7 +4,7 @@ interface Props {
   label: string;
   name: string;
   [x: string]: any;
-  children?: JSX.Element[] | JSX.Element;
+  children?: any;
 }
 
 export const MySelect = ({ label, ...props }: Props) => {
