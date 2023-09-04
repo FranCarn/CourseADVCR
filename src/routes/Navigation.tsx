@@ -2,10 +2,15 @@ import { BrowserRouter } from "react-router-dom";
 import { Routes, Route, NavLink, Navigate } from "react-router-dom";
 
 import logo from "../logo.svg";
-import { RegisterPage } from "../03-Forms/pages/RegisterPage";
-import { FormikBasicPage } from "../03-Forms/pages/FormikBasicPage";
-import { FormikYupPage } from "../03-Forms/pages/FormikYupPage";
-import { FormikComponents } from "../03-Forms/pages/FormikComponents";
+import {
+  FormikAbstractation,
+  FormikBasicPage,
+  FormikComponents,
+  RegisterFormikPage,
+  FormikYupPage,
+  RegisterPage,
+  DynamicForm,
+} from "../03-Forms/pages";
 
 export const Navigation = () => {
   return (
@@ -70,6 +75,30 @@ export const Navigation = () => {
                 Formik Components
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/formikAbstraction"
+                className={({ isActive }) => (isActive ? "nav-active" : "")}
+              >
+                Formik Abstractation
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/registerFormikPage"
+                className={({ isActive }) => (isActive ? "nav-active" : "")}
+              >
+                Formik Register
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/dynamicForms"
+                className={({ isActive }) => (isActive ? "nav-active" : "")}
+              >
+                Dynamic Form
+              </NavLink>
+            </li>
           </ul>
         </nav>
 
@@ -81,6 +110,9 @@ export const Navigation = () => {
           <Route path="formikBasic" element={<FormikBasicPage />} />
           <Route path="formikYup" element={<FormikYupPage />} />
           <Route path="formikComponents" element={<FormikComponents />} />
+          <Route path="formikAbstraction" element={<FormikAbstractation />} />
+          <Route path="registerFormikPage" element={<RegisterFormikPage />} />
+          <Route path="dynamicForms" element={<DynamicForm />} />
 
           <Route path="/*" element={<Navigate to="/home" replace />} />
         </Routes>
