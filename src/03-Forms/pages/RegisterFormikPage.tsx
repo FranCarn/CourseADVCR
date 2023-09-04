@@ -1,6 +1,6 @@
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
-import { MyTextInput, MySelect, MyCheckbox } from "../components";
+import { MyTextInput } from "../components";
 
 export const RegisterFormikPage = () => {
   return (
